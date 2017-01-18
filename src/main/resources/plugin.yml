@@ -1,0 +1,7 @@
+name: ZCore
+version: ${project.version}
+main: de.zeroxtv.zcore.ZCore
+prefix: ZCore
+load: STARTUP
+authors: [ZeroxTV]
+description: Contains all libraries neede for ZPlugins
