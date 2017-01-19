@@ -12,6 +12,7 @@ public class NumberUtils {
             pattern = pattern + "#";
         }
         DecimalFormat df = new DecimalFormat(pattern);
-        return Double.valueOf(df.format(toParse));
+        String parsed = df.format(toParse).replace(",", ".");
+        return Double.parseDouble(parsed);
     }
 }
