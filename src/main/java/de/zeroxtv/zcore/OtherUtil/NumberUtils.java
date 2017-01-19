@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
  * Created by ZeroxTV
  */
 public class NumberUtils {
-    public double parseDouble(double toParse, int decimals) {
+    public static double parseDouble(double toParse, int decimals) {
         String pattern = "#.";
         for (int i = 0; i < decimals; i++) {
             pattern = pattern + "#";
