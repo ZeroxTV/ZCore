@@ -1,6 +1,5 @@
 package de.zeroxtv.zcore;
 
-import de.zeroxtv.zcore.MenuUtil.ItemMenuListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,16 +8,22 @@ import java.util.logging.Logger;
 
 public final class ZCore extends JavaPlugin {
 
-    private Logger logger;
+    public static Logger logger;
 
     @Override
     public void onEnable() {
         logger = Bukkit.getLogger();
-        new ItemMenuListener(this);
+
+        //SQL Setup
+        try {
+            Class.forName("org.sqlite.JDBC").newInstance();
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
         logger.info(ChatColor.GREEN + "ZCore enabled");
         logger.info("Ready to load ZPlugins");
-
     }
 
     @Override
