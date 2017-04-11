@@ -64,4 +64,12 @@ public class MySQL {
             execute(command);
         }
     }
+
+    public void switchDatabase(String name)  {
+        try {
+            connection.setCatalog(name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
